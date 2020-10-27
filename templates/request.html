@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block container %}
+<main class="container mt-5">
+    <div class="col-12 col-sm-10 col-lg-6 offset-lg-3 offset-sm-1">
+
+        <form action="{{ url_for('request_teacher') }}" method="POST" class="card mb-5">
+            {{ form.csrf_token }}
+            <div class="card-body text-center pt-5">
+                <h1 class="h3 card-title mt-4 mb-2">Подбор преподавателя</h1>
+                <p class="px-5">Напишите, чего вам нужно и мы подберем отличных ребят</p>
+            </div>
+            <div class="card-body mx-3">
+                <div class="row">
+                    <hr>
+                    <div class="col">
+                        <p>Какая цель занятий?</p>
+                        <div class="form-check ">
+                            <p>{{ form.goal(class_="form-check-input") }}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="col">
+                        <p>Сколько времени есть?</p>
+                        <div class="form-check ">
+                            <p>{{ form.time(class_="form-check-input") }}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="card-body mx-3">
+                        <p><label class="mb-1 mt-2">Вас зовут</label></p>
+                        <p>{{ form.name(class_="form-control") }}</p>
+                        <label class="mb-1 mt-2">Ваш телефон</label>
+                        <p>{{ form.phone(class_="form-control") }}</p>
+                        <p><input type="submit" class="btn btn-primary mt-4 mb-2" value="Найдите мне преподавателя"></p>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</main>
+{% endblock %}
